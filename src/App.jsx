@@ -9,8 +9,6 @@ function App() {
   const [city, setcity] = useState('mumbai')
   const [adult, setadult] = useState(false)
 
-  console.log(adult)
-
   // initializing the state variable array
   const [users, setusers] = useState([])
 
@@ -18,11 +16,28 @@ function App() {
 
       e.preventDefault()
       const newUser = {name,about,gender,city,adult}
-      // console.log(newUser)
+      setname("Enter name")
+      setabout("Tell me about yourself")
+      setgender("female")
+      setcity("mumbai")
+      setadult(false)
+      // adding new user to the users array
       setusers([...users,newUser])
-      console.log(users)
-
   }
+
+  // showing data/users in ui
+  const listRender = users.map((user,i)=>{
+    return(
+    <div key={i}>
+      <h3>Name: {user.name}</h3>
+      <h3>About: {user.about}</h3>
+      <h3>Gender: {user.gender}</h3>
+      <h3>City: {user.city}</h3>
+      <h3>Adult: {user.adult}</h3>
+      <hr />
+    </div>  
+    )
+  })
 
   return (
     <>
@@ -46,6 +61,7 @@ function App() {
         <input value={adult} onClick={e=>setadult(e.target.checked)} checked={adult?true:false} type="checkbox" /><br /><br />
         <button >Submit</button>
       </form>
+      {listRender}
     </>
   )
 }
