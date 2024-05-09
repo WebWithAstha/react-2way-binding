@@ -42,7 +42,7 @@ function App() {
   return (
     <>
       <h1>React Form</h1>
-      <form onSubmit={submitHandler} action="">
+      <form className='bg-rose-100 w-max p-6' onSubmit={submitHandler} action="">
         <label htmlFor="name">Name: </label>
         <input value={name} onChange={(e)=>{setname(e.target.value)}} type="text" /><br /><br />
         <label htmlFor="email">Two words: </label>
